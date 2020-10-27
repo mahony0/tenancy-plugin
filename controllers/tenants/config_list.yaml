@@ -1,0 +1,14 @@
+list: $/mahony0/tenancy/models/tenant/columns.yaml
+modelClass: Mahony0\Tenancy\Models\Tenant
+title: mahony0.tenancy::lang.controllers.tenants.title_plural
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: id
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'mahony0/tenancy/tenants/update/:id'

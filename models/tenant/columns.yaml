@@ -1,0 +1,33 @@
+columns:
+    id:
+        label: 'ID'
+        type: number
+        searchable: true
+        sortable: true
+    is_active:
+        label: mahony0.tenancy::lang.models.tenant.active
+        type: text
+        searchable: false
+        sortable: false
+    host:
+        label: mahony0.tenancy::lang.models.tenant.host
+        type: text
+        searchable: true
+        sortable: true
+    theme:
+        label: mahony0.tenancy::lang.models.tenant.theme
+        type: text
+        searchable: true
+        sortable: true
+    usergroup:
+        label: mahony0.tenancy::lang.models.tenant.usergroup
+        type: text
+        relation: usergroup
+        select: name
+        searchable: true
+        sortable: true
+    language_text:
+        label: mahony0.tenancy::lang.models.tenant.language
+        type: text
+        searchable: false
+        sortable: false

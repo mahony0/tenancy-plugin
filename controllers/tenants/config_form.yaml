@@ -1,0 +1,10 @@
+name: mahony0.tenancy::lang.controllers.tenants.title
+form: $/mahony0/tenancy/models/tenant/fields.yaml
+modelClass: Mahony0\Tenancy\Models\Tenant
+defaultRedirect: mahony0/tenancy/tenants
+create:
+    redirect: 'mahony0/tenancy/tenants/update/:id'
+    redirectClose: mahony0/tenancy/tenants
+update:
+    redirect: mahony0/tenancy/tenants
+    redirectClose: mahony0/tenancy/tenants

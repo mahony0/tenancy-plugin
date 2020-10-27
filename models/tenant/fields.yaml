@@ -1,0 +1,29 @@
+fields:
+    active:
+        label: mahony0.tenancy::lang.models.tenant.active
+        span: auto
+        type: switch
+        on: mahony0.tenancy::lang.models.tenant.on
+        off: mahony0.tenancy::lang.models.tenant.off
+    host:
+        label: mahony0.tenancy::lang.models.tenant.host
+        span: left
+        type: text
+        required: 1
+        comment: mahony0.tenancy::lang.models.tenant.host_comment
+    theme:
+        label: mahony0.tenancy::lang.models.tenant.theme
+        span: auto
+        type: dropdown
+        required: 1
+        comment: mahony0.tenancy::lang.models.tenant.theme_comment
+    language:
+        label: mahony0.tenancy::lang.models.tenant.language
+        span: auto
+        type: dropdown
+        comment: mahony0.tenancy::lang.models.tenant.language_comment
+    usergroup_id:
+        label: mahony0.tenancy::lang.models.tenant.usergroup
+        span: auto
+        type: dropdown
+        comment: mahony0.tenancy::lang.models.tenant.usergroup_comment
