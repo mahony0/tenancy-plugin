@@ -65,7 +65,7 @@ class Plugin extends PluginBase
         $currentHostUrl = request()->getHost();
 
         /*
-         * Restrict access to the site to super users and users belonging to a group with the same name as the domain
+         * Restrict access to the site to super users and users belonging to a group
          */
         Event::listen('backend.user.login', function($backendUser) use ($currentHostUrl) {
             $logout = true;
