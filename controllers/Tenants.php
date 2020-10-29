@@ -12,7 +12,7 @@ class Tenants extends Controller
         \Backend\Behaviors\ListController::class,
         \Backend\Behaviors\FormController::class
     ];
-    
+
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
 

@@ -15,14 +15,14 @@ class BuilderTableCreateMahony0TenancyTenants extends Migration
             $table->integer('usergroup_id')->nullable();
 
             $table->string('host')->nullable();
-	        $table->string('theme')->nullable();
+            $table->string('theme')->nullable();
             $table->string('language')->nullable();
 
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('mahony0_tenancy_tenants');
