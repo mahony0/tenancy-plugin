@@ -4,6 +4,7 @@ use Backend\Classes\Controller;
 use BackendMenu;
 use Cache;
 use Flash;
+use Mahony0\Tenancy\Classes\Helpers;
 use Mahony0\Tenancy\Models\Tenant;
 
 class Tenants extends Controller
@@ -28,9 +29,7 @@ class Tenants extends Controller
 
     public function onRebuildTenantCache()
     {
-        Cache::rememberForever('tenants', function() {
-            return Tenant::isActive()->get();
-        });
+        (new Helpers())->rebuildTenantCache();
 
         Flash::success(e(trans('mahony0.tenancy::lang.controllers.tenants.rebuild_success')));
 

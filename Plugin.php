@@ -112,11 +112,11 @@ class Plugin extends PluginBase
             // all tenants in cache
             foreach (Cache::get('tenants', []) as $tenant) {
                 // if theme folder exists
-                if ($tenant->host == $currentHostUrl && in_array('themes/'.$tenant->theme, $themes)) {
+                if ($tenant['host'] == $currentHostUrl && in_array('themes/'.$tenant['theme'], $themes)) {
                     session(['tenancyHost' => $currentHostUrl]);
-                    session(['tenancyLang' => $tenant->language]);
+                    session(['tenancyLang' => $tenant['language']]);
 
-                    return $tenant->theme;
+                    return $tenant['theme'];
                 }
             }
         });

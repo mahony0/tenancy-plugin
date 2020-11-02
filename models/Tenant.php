@@ -3,6 +3,7 @@
 use Backend\Models\UserGroup;
 use Cache;
 use Cms\Classes\Theme;
+use Mahony0\Tenancy\Classes\Helpers;
 use Model;
 use RainLab\Translate\Models\Locale;
 
@@ -20,16 +21,12 @@ class Tenant extends Model
 
         // build active tenants cache when one of them created or updated
         static::saved(function($tenant) {
-            Cache::rememberForever('tenants', function() {
-                return self::isActive()->get();
-            });
+            (new Helpers())->rebuildTenantCache();
         });
 
         // rebuild the cache also when one of them deleted
         static::deleted(function($tenant) {
-            Cache::rememberForever('tenants', function() {
-                return self::isActive()->get();
-            });
+            (new Helpers())->rebuildTenantCache();
         });
     }
 
