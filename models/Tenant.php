@@ -11,6 +11,12 @@ class Tenant extends Model
 {
     public $table = 'mahony0_tenancy_tenants';
 
+    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+
+    public $translatable = [];
+
+    protected $jsonable = [];
+
     public $belongsTo = [
         'usergroup' => [UserGroup::class],
     ];

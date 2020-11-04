@@ -3,6 +3,7 @@
 use Backend;
 use BackendAuth;
 use Cache;
+use Mahony0\Tenancy\Classes\Helpers;
 use Mahony0\Tenancy\Models\Tenant;
 use Event;
 use Flash;
@@ -109,12 +110,21 @@ class Plugin extends PluginBase
             // all theme folders
             $themes = glob('themes/*', GLOB_ONLYDIR);
 
+            // if somehow tenants cache empty, try to rebuild it
+            if (!$tenants = Cache::get('tenants', [])) {
+                (new Helpers())->rebuildTenantCache();
+                $tenants = Cache::get('tenants', []);
+            }
+
             // all tenants in cache
-            foreach (Cache::get('tenants', []) as $tenant) {
+            foreach ($tenants as $tenant) {
                 // if theme folder exists
                 if ($tenant['host'] == $currentHostUrl && in_array('themes/'.$tenant['theme'], $themes)) {
-                    session(['tenancyHost' => $currentHostUrl]);
-                    session(['tenancyLang' => $tenant['language']]);
+                    session([
+                        'tenancyId' => $tenant['id'],
+                        'tenancyHost' => $currentHostUrl,
+                        'tenancyLang' => $tenant['language']
+                    ]);
 
                     return $tenant['theme'];
                 }
